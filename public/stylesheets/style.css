@@ -10,8 +10,7 @@
 /* Basic */
 
 	body {
-		background: #0f
-            1116;
+		background: #0f1116;
 	}
 
 	body, span, input, select, textarea {
@@ -627,4 +626,12 @@
 		background: #FFF;
 		text-align: center;
 		border-radius: 0px 0px 6px 6px;
+	}
+
+
+
+
+
+	section {
+		margin-top: 20px;
 	}
