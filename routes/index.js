@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index.ejs', { title: 'Express' });
+  if (req.session) res.render('index_loggedin.ejs', { title: 'Express' });
+  else res.render('index.ejs');
+
 });
 
 module.exports = router;

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Full Motion</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/stylesheets/main.css" />
+	</head>
+	<body id="top">
+
+			<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+				<section id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+                            <h1>Your Class</h1>
+							<p>[NUMBER] Classes Total</p>
+						</header>
+						<a href="#main" class="more">Learn More</a>
+					</div>
+				</section>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+
+					<!-- Boxes -->
+						<div class="thumbnails">
+
+							<div class="box">
+								<div class="inner">
+									<h3>Calculus</h3>
+									<p>ids</p>
+									<a href="streaming.html" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<div class="inner">
+									<h3>Calculus</h3>
+									<p>3/15(Mo)</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+                            
+                            <div class="box">
+								<div class="inner">
+									<h3>Calculus</h3>
+									<p>3/15(Mo)</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+                            
+                            <div class="box">
+								<div class="inner">
+									<h3>Calculus</h3>
+									<p>3/15(Mo)</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+                            
+                            <div class="box">
+								<div class="inner">
+									<h3>Calculus</h3>
+									<p>3/15(Mo)</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+                            
+                            <div class="box">
+								<div class="inner">
+									<h3>Calculus</h3>
+									<p>3/15(Mo)</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>. Videos: <a href="http://coverr.co/">Coverr</a>.</p>
+					</div>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="javascripts/jquery.min.js"></script>
+			<script src="javascripts/jquery.scrolly.min.js"></script>
+			<script src="javascripts/jquery.poptrox.min.js"></script>
+			<script src="javascripts/skel.min.js"></script>
+			<script src="javascripts/util.js"></script>
+			<script src="javascripts/main.js"></script>
+			<script>
+				$.ajax({
+					url: 'http://localhost:4000/users/b77c255b90269c87abbedf893e62c7af/myclass/',
+					type: 'GET',
+					success: (data) => {
+						var strings = "";
+						for (var i = 0; i < data.length; i++) {
+							strings += `<div class="box" id="box_${data[i]}">
+								<div class="inner">
+									<h3>-</h3>
+									<p>-</p>
+									<a href="streaming.html" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>`
+							$.ajax({
+								url: `http://localhost:4000/class/${data[i]}/info`,
+								success: (data) => {
+									console.log(data);
+									$(`#box_${data.cid} h3`)[0].innerHTML = data.title
+									$(`#box_${data.cid} p`)[0].innerHTML = data.cid
+								}
+							})
+						}
+						$('.thumbnails')[0].innerHTML = strings;
+					}
+				})
+			</script>
+
+	</body>
+</html>
