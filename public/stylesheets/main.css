@@ -1420,5 +1420,38 @@ body {
             padding: 0 2em 0 2em;
         }
         .container{
-             padding: 0 2em 0 2em;
+			width: 30%;
+			height: 100%
         }
+		embed {
+			left: -29%;
+			transition: all 1s;
+		}
+
+		embed:hover {
+			left: 0%;
+		}
+
+		table {
+			width: 400px;
+			color: black;
+			border-collapse: separate;
+			border-spacing: 0 10px;
+			positon: fixed;
+			right: 0px;
+			bottom: 0px;
+		}
+
+		tr {
+			background-color: rgba(255, 255, 255, 0.6) !important;
+			margin: 5px !important;
+			display: table-row;
+			text-align: right;
+			padding: 20px !important;
+		}
+
+		td {
+
+			border-color: gainsboro;
+			border-radius: 40px;
+		}

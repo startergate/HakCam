@@ -64,14 +64,22 @@
 	</div>
 	<script>
 		$.ajax({
-			url:
+			url: 'http://localhost:4000/class/<%= classes %>',
+			method: 'GET',
+			success: data => {
+				let strings = '';
+				for (let d in data) {
+					strings += `<section class="4u"><!--<a href="#" class="image featured"><img src="/images/pic01.jpg" alt=""></a>-->
+									<div class="box">
+										<p>${data[d].title}</p>
+										<a href="#" class="button">Enter the Classroom</a>
+									</div>
+								</section>`
+				}
+				$('.no-collapse-1')[0].innerHTML = strings;
+			}
 		})
-		`<section class="4u"> <a href="#" class="image featured"><img src="/images/pic01.jpg" alt=""></a>
-			<div class="box">
-				<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-				<a href="#" class="button">Enter the Classroom</a>
-			</div>
-		</section>`
+
 	</script>
     </body>
 </html>
