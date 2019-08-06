@@ -69,10 +69,11 @@
 			success: data => {
 				let strings = '';
 				for (let d in data) {
+					console.log(data[d]);
 					strings += `<section class="4u"><!--<a href="#" class="image featured"><img src="/images/pic01.jpg" alt=""></a>-->
 									<div class="box">
 										<p>${data[d].title}</p>
-										<a href="#" class="button">Enter the Classroom</a>
+										<a href="/class/${data[d].cid}/${data[d].lid}" class="button">Enter the Classroom</a>
 									</div>
 								</section>`
 				}
